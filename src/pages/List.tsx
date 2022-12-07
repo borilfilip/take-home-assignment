@@ -53,6 +53,9 @@ function List() {
           </tbody>
         </Table>
       )}
+      <Link to="/" className="btn btn-success mb-3">
+        ⭠ Back
+      </Link>
     </Container>
   );
 }

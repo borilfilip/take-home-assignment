@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import axios, { AxiosError } from 'axios';
 import { apiUrl, BookingObject, HTTPValidationError } from '../helpers';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Create() {
   const navigate = useNavigate();
@@ -186,6 +186,9 @@ function Create() {
           </Form.Group>
         </Row>
         <Button type="submit">Submit</Button>
+        <Link to="/" className="ms-2 btn btn-secondary">
+          ⭠ Back
+        </Link>
       </Form>
     </Container>
   );
