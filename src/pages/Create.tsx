@@ -1,10 +1,11 @@
-import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { useFormik } from 'formik';
+import { Alert, Button, Container, Form, Row } from 'react-bootstrap';
+import { FormikProvider, useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios, { AxiosError } from 'axios';
 import { apiUrl, BookingObject, HTTPValidationError } from '../helpers';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Input from '../components/Input';
 
 function Create() {
   const navigate = useNavigate();
@@ -74,121 +75,75 @@ function Create() {
       )}
 
       <Form onSubmit={formik.handleSubmit}>
-        <h2>Start</h2>
-        <Row className="mb-3">
-          <Form.Group as={Col} md={5}>
-            <Form.Label>City</Form.Label>
-            <Form.Control
+        <FormikProvider value={formik}>
+          <h2>Start</h2>
+          <Row className="mb-3">
+            <Input
               name="start.city"
               value={formik.values.start.city}
-              onChange={formik.handleChange}
-              isInvalid={!!formik.touched.start?.city && !!formik.errors.start?.city}
+              touched={formik.touched.start?.city}
+              error={formik.errors.start?.city}
+              label="City"
+              md={5}
             />
-            <Form.Control.Feedback type="invalid">
-              {formik.errors.start?.city}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md={5}>
-            <Form.Label>Street</Form.Label>
-            <Form.Control
+            <Input
               name="start.street"
               value={formik.values.start.street}
-              onChange={formik.handleChange}
-              isInvalid={!!formik.touched.start?.street && !!formik.errors.start?.street}
+              touched={formik.touched.start?.street}
+              error={formik.errors.start?.street}
+              label="Street"
+              md={5}
             />
-            <Form.Control.Feedback type="invalid">
-              {formik.errors.start?.street}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md={2}>
-            <Form.Label>Number</Form.Label>
-            <Form.Control
-              type="number"
+            <Input
               name="start.number"
               value={formik.values.start.number}
-              onChange={formik.handleChange}
-              isInvalid={!!formik.touched.start?.number && !!formik.errors.start?.number}
+              touched={formik.touched.start?.number}
+              error={formik.errors.start?.number}
+              type="number"
+              label="Number"
+              md={2}
             />
-            <Form.Control.Feedback type="invalid">
-              {formik.errors.start?.number}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
+          </Row>
 
-        <h2>Destination</h2>
-        <Row className="mb-3">
-          <Form.Group as={Col} md={5}>
-            <Form.Label>City</Form.Label>
-            <Form.Control
+          <h2>Destination</h2>
+          <Row className="mb-3">
+            <Input
               name="destination.city"
               value={formik.values.destination.city}
-              onChange={formik.handleChange}
-              isInvalid={!!formik.touched.destination?.city && !!formik.errors.destination?.city}
+              touched={formik.touched.destination?.city}
+              error={formik.errors.destination?.city}
+              label="City"
+              md={5}
             />
-            <Form.Control.Feedback type="invalid">
-              {formik.errors.destination?.city}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md={5}>
-            <Form.Label>Street</Form.Label>
-            <Form.Control
+            <Input
               name="destination.street"
               value={formik.values.destination.street}
-              onChange={formik.handleChange}
-              isInvalid={
-                !!formik.touched.destination?.street && !!formik.errors.destination?.street
-              }
+              touched={formik.touched.destination?.street}
+              error={formik.errors.destination?.street}
+              label="Street"
+              md={5}
             />
-            <Form.Control.Feedback type="invalid">
-              {formik.errors.destination?.street}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md={2}>
-            <Form.Label>Number</Form.Label>
-            <Form.Control
-              type="number"
+            <Input
               name="destination.number"
               value={formik.values.destination.number}
-              onChange={formik.handleChange}
-              isInvalid={
-                !!formik.touched.destination?.number && !!formik.errors.destination?.number
-              }
-            />
-            <Form.Control.Feedback type="invalid">
-              {formik.errors.destination?.number}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-        <h2>Details</h2>
-        <Row className="mb-3">
-          <Form.Group as={Col}>
-            <Form.Label>When</Form.Label>
-            <Form.Control
-              type="datetime-local"
-              name="when"
-              value={formik.values.when}
-              onChange={formik.handleChange}
-              isInvalid={!!formik.touched.when && !!formik.errors.when}
-            />
-            <Form.Control.Feedback type="invalid">{formik.errors.when}</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col}>
-            <Form.Label>People</Form.Label>
-            <Form.Control
+              touched={formik.touched.destination?.number}
+              error={formik.errors.destination?.number}
               type="number"
-              name="people"
-              value={formik.values.people}
-              onChange={formik.handleChange}
-              isInvalid={!!formik.touched.people && !!formik.errors.people}
+              label="Number"
+              md={2}
             />
-            <Form.Control.Feedback type="invalid">{formik.errors.people}</Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-        <Button type="submit">Submit</Button>
-        <Link to="/" className="ms-2 btn btn-secondary">
-          ⭠ Back
-        </Link>
+          </Row>
+
+          <h2>Details</h2>
+          <Row className="mb-3">
+            <Input name="when" type="datetime-local" label="When" />
+            <Input name="people" type="number" label="Number of people" />
+          </Row>
+          <Button type="submit">Submit</Button>
+          <Link to="/" className="ms-2 btn btn-secondary">
+            ⭠ Back
+          </Link>
+        </FormikProvider>
       </Form>
     </Container>
   );

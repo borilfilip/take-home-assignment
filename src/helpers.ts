@@ -1,16 +1,14 @@
 export const apiUrl = 'http://localhost:8000';
 
+interface Address {
+  city: string;
+  street: string;
+  number: number;
+}
+
 export interface BookingObject {
-  start: {
-    city: string;
-    street: string;
-    number: number;
-  };
-  destination: {
-    city: string;
-    street: string;
-    number: number;
-  };
+  start: Address;
+  destination: Address;
   when: string;
   people: number;
 }
