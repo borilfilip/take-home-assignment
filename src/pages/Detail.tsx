@@ -25,7 +25,7 @@ function Detail() {
       <h1>Detail</h1>
       {error && <Alert variant="danger">{error.message}</Alert>}
       <BookingDetail booking={booking} />
-      <Link to="/" className="btn btn-success">
+      <Link to="/list" className="btn btn-success">
         ⭠ Back
       </Link>
     </Container>

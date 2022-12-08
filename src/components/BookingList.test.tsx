@@ -1,9 +1,23 @@
 import renderer from 'react-test-renderer';
 import { BookingObject } from '../helpers';
 import BookingList from './BookingList';
-import { mockBooking } from './BookingDetail.test';
 import { BrowserRouter } from 'react-router-dom';
 
+const mockBooking1: BookingObject = {
+  id: '1',
+  start: {
+    city: 'Warszaw',
+    street: 'Marszałkowska',
+    number: 1
+  },
+  destination: {
+    city: 'Praha',
+    street: 'Staroměstské nám.',
+    number: 4
+  },
+  when: '2022-12-08T08:15:37.164Z',
+  people: 2
+};
 const mockBooking2: BookingObject = {
   id: '2',
   start: {
@@ -20,7 +34,7 @@ const mockBooking2: BookingObject = {
   people: 2
 };
 
-const mockBookings = [mockBooking, mockBooking2];
+const mockBookings = [mockBooking1, mockBooking2];
 
 it('renders booking list', () => {
   const component = renderer.create(

@@ -2,7 +2,7 @@ import renderer from 'react-test-renderer';
 import { BookingObject } from '../helpers';
 import BookingDetail from './BookingDetail';
 
-export const mockBooking: BookingObject = {
+const mockBooking: BookingObject = {
   id: '1',
   start: {
     city: 'Warszaw',
