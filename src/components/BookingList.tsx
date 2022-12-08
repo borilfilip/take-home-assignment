@@ -20,8 +20,8 @@ function BookingList({ bookings }: BookingListProps) {
           </tr>
         </thead>
         <tbody>
-          {Object.entries(bookings).map(([id, booking]) => (
-            <tr key={id}>
+          {bookings.map((booking) => (
+            <tr key={booking.id}>
               <td>{booking.start.city}</td>
               <td>{booking.start.street}</td>
               <td>{booking.start.number}</td>
@@ -31,7 +31,7 @@ function BookingList({ bookings }: BookingListProps) {
               <td>{new Date(booking.when).toLocaleString()}</td>
               <td>{booking.people}</td>
               <td>
-                <Link to={'/detail/' + id} className="btn btn-sm btn-primary">
+                <Link to={'/detail/' + booking.id} className="btn btn-sm btn-primary">
                   Detail
                 </Link>
               </td>

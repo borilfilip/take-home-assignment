@@ -22,7 +22,9 @@ function List() {
     <Container>
       <h1>Bookings</h1>
       {error && <Alert variant="danger">{error.message}</Alert>}
-      <BookingList bookings={Object.values(bookings)} />
+      <BookingList
+        bookings={Object.entries(bookings).map(([id, booking]) => ({ ...booking, id }))}
+      />
       <Link to="/" className="btn btn-success mb-3">
         ⭠ Back
       </Link>

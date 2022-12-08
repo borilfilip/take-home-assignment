@@ -7,6 +7,7 @@ interface Address {
 }
 
 export interface BookingObject {
+  id?: string;
   start: Address;
   destination: Address;
   when: string;

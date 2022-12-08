@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders booking detail 1`] = `
+Array [
+  <div
+    className="mb-3"
+  >
+    <strong>
+      Start
+    </strong>
+    <br />
+    Marszałkowska
+     
+    1
+    ,
+    <br />
+    Warszaw
+  </div>,
+  <div
+    className="mb-3"
+  >
+    <strong>
+      Destination
+    </strong>
+    <br />
+    Staroměstské nám.
+     
+    4
+    ,
+    <br />
+    Praha
+  </div>,
+  <div
+    className="mb-3"
+  >
+    <strong>
+      Date
+    </strong>
+    <br />
+    12/8/2022, 7:15:37 PM
+  </div>,
+  <div
+    className="mb-3"
+  >
+    <strong>
+      Number of people
+    </strong>
+    <br />
+    2
+  </div>,
+]
+`;

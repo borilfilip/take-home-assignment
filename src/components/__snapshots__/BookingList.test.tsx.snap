@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders booking list 1`] = `
+<table
+  className="table table-striped table-hover"
+>
+  <thead>
+    <tr>
+      <th
+        colSpan={3}
+      >
+        Start
+      </th>
+      <th
+        colSpan={3}
+      >
+        Destination
+      </th>
+      <th>
+        When
+      </th>
+      <th>
+        People
+      </th>
+      <th>
+        Action
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Warszaw
+      </td>
+      <td>
+        Marszałkowska
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        Praha
+      </td>
+      <td>
+        Staroměstské nám.
+      </td>
+      <td>
+        4
+      </td>
+      <td>
+        12/8/2022, 7:15:37 PM
+      </td>
+      <td>
+        2
+      </td>
+      <td>
+        <a
+          className="btn btn-sm btn-primary"
+          href="/detail/1"
+          onClick={[Function]}
+        >
+          Detail
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Melbourne
+      </td>
+      <td>
+        City Rd.
+      </td>
+      <td>
+        183
+      </td>
+      <td>
+        Melbourne
+      </td>
+      <td>
+        The Parade
+      </td>
+      <td>
+        103
+      </td>
+      <td>
+        12/8/2022, 7:15:37 PM
+      </td>
+      <td>
+        2
+      </td>
+      <td>
+        <a
+          className="btn btn-sm btn-primary"
+          href="/detail/2"
+          onClick={[Function]}
+        >
+          Detail
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
